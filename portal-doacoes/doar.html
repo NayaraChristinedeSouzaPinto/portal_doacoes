@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Doar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Fazer Doação</h1>
+</header>
+
+<div class="container">
+  <form id="form">
+    <input id="nome" placeholder="Nome" required>
+    <input id="telefone" placeholder="Telefone (DDD + número)" required>
+
+    <select id="tipo">
+      <option>Roupas</option>
+      <option>Alimentos</option>
+      <option>Outros</option>
+    </select>
+
+    <textarea id="descricao" placeholder="Descreva a doação"></textarea>
+
+    <select id="bairro" required>
+  <option value="">Selecione o bairro</option>
+  <option>Água Verde</option>
+  <option>Bacacheri</option>
+  <option>Boqueirão</option>
+  <option>Cajuru</option>
+  <option>Centro</option>
+  <option>CIC</option>
+  <option>Fazendinha</option>
+  <option>Hauer</option>
+  <option>Juvevê</option>
+  <option>Mercês</option>
+  <option>Pinheirinho</option>
+  <option>Portão</option>
+  <option>Rebouças</option>
+  <option>Santa Felicidade</option>
+  <option>Sítio Cercado</option>
+  <option>Tatuquara</option>
+  <option value="outro">Outro</option>
+</select>
+
+<input 
+  id="bairroOutro" 
+  placeholder="Digite seu bairro" 
+  style="display: none;"
+>
+
+    <button type="submit" class="btn">Enviar</button>
+  </form>
+</div>
+
+<script src="script.js" type="module"></script>
+
+</body>
+</html>
