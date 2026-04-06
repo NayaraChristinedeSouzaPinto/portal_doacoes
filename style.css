@@ -1,10 +1,15 @@
+/* ============================
+   BASE
+============================ */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
 }
 
-/* TOPBAR */
+/* ============================
+   TOPBAR
+============================ */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -29,14 +34,20 @@ body {
   font-size: 20px;
 }
 
-/* CONTAINER */
+/* ============================
+   CONTAINER
+============================ */
 .container {
   padding: 20px;
   text-align: center;
 }
 
-/* INPUTS */
-input, select, textarea {
+/* ============================
+   INPUTS (CORRIGIDO)
+============================ */
+input:not([type="checkbox"]),
+select,
+textarea {
   width: 80%;
   max-width: 400px;
   margin: 10px auto;
@@ -45,7 +56,15 @@ input, select, textarea {
   border: 1px solid #ccc;
 }
 
-/* BOTÕES */
+/* CHECKBOX CORRIGIDO */
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+/* ============================
+   BOTÕES
+============================ */
 .btn {
   background-color: #C62828;
   color: white;
@@ -59,7 +78,26 @@ input, select, textarea {
   background-color: #a81f1f;
 }
 
-/* FILTROS */
+/* ============================
+   LOGIN BOTÃO
+============================ */
+.login-link {
+  color: white;
+  text-decoration: none;
+  border: 2px solid #4CAF50;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.login-link:hover {
+  background-color: #4CAF50;
+}
+
+/* ============================
+   FILTROS
+============================ */
 .filtros {
   margin-bottom: 20px;
 }
@@ -69,7 +107,9 @@ input, select, textarea {
   max-width: 300px;
 }
 
-/* CARDS */
+/* ============================
+   CARDS
+============================ */
 #cards {
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +130,6 @@ input, select, textarea {
   color: #0B5D1E;
 }
 
-/* DOAR
 /* ============================
    PÁGINA DOAR (ISOLADO)
 ============================ */
@@ -106,7 +145,6 @@ input, select, textarea {
   width: 100%;
   max-width: 420px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
   display: flex;
   flex-direction: column;
 }
@@ -122,9 +160,6 @@ input, select, textarea {
 .page-doar .form-doacao textarea {
   width: 100%;
   margin-top: 5px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
 }
 
 .page-doar .form-doacao textarea {
@@ -132,54 +167,45 @@ input, select, textarea {
   min-height: 80px;
 }
 
+/* CHECKBOX DOAR */
 .page-doar .checkbox-group {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
+  align-items: flex-start;
 }
 
 .page-doar .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: normal;
-  margin: 3px 0;
+  margin: px 0;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .page-doar .btn {
   margin-top: 20px;
 }
 
-/* LOGIN COMO BOTÃO */
-.login-link {
-  color: white;
-  text-decoration: none;
-  border: 2px solid #4CAF50;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: all 0.2s ease;
-}
-
-.login-link:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-/* CONTAINER */
+/* ============================
+   INPUT SENHA (ADMIN)
+============================ */
 .input-senha {
   position: relative;
   max-width: 200px;
   margin: auto;
 }
 
-/* INPUT */
 .input-senha input {
-  width: 60%;
-  padding-right: 50px; /* espaço pro ícone */
+  width: 90%;
+  padding-right: 0px;
 }
 
-/* ÍCONE */
 .eye-icon {
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
