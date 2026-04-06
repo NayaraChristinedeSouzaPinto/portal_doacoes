@@ -7,52 +7,66 @@
 </head>
 <body>
 
-<header>
-  <h1>Fazer Doação</h1>
+<header class="topbar admin-topbar">
+  <a href="index.html" class="back-btn">←</a>
+  <h1 class="logo">Fazer Doação</h1>
 </header>
 
+<body class="page-doar">
+  
+</body>
 <div class="container">
-  <form id="form">
-    <input id="nome" placeholder="Nome" required>
-    <input id="telefone" placeholder="Telefone (DDD + número)" required>
+  <form id="form" class="form-doacao">
 
-    <select id="tipo">
-      <option>Roupas</option>
-      <option>Alimentos</option>
-      <option>Outros</option>
-    </select>
+    <label for="nome">Nome</label>
+    <input id="nome" placeholder="Digite seu nome" required>
 
+    <label for="telefone">Telefone</label>
+    <input id="telefone" placeholder="(DDD) + número" required>
+
+    <label>Tipo de doação</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="tipo" value="Roupas"> Roupas</label>
+      <label><input type="checkbox" name="tipo" value="Alimentos"> Alimentos</label>
+      <label><input type="checkbox" name="tipo" value="Higiene"> Higiene</label>
+      <label><input type="checkbox" name="tipo" value="Outros"> Outros</label>
+    </div>
+
+    <label for="descricao">Descrição</label>
     <textarea id="descricao" placeholder="Descreva a doação"></textarea>
 
+    <label for="bairro">Bairro</label>
     <select id="bairro" required>
-  <option value="">Selecione o bairro</option>
-  <option>Água Verde</option>
-  <option>Bacacheri</option>
-  <option>Boqueirão</option>
-  <option>Cajuru</option>
-  <option>Centro</option>
-  <option>CIC</option>
-  <option>Fazendinha</option>
-  <option>Hauer</option>
-  <option>Juvevê</option>
-  <option>Mercês</option>
-  <option>Novo Mundo</option>
-  <option>Pinheirinho</option>
-  <option>Portão</option>
-  <option>Rebouças</option>
-  <option>Santa Felicidade</option>
-  <option>Sítio Cercado</option>
-  <option>Tatuquara</option>
-  <option value="outro">Outro</option>
-</select>
+      <option value="">Selecione o bairro</option>
+      <option>Água Verde</option>
+      <option>Atuba</option>
+      <option>Bacacheri</option>
+      <option>Boqueirão</option>
+      <option>Cajuru</option>
+      <option>Centro</option>
+      <option>CIC</option>
+      <option>Fazendinha</option>
+      <option>Hauer</option>
+      <option>Juvevê</option>
+      <option>Mercês</option>
+      <option>Novo Mundo</option>
+      <option>Pinheirinho</option>
+      <option>Portão</option>
+      <option>Rebouças</option>
+      <option>Santa Felicidade</option>
+      <option>Sítio Cercado</option>
+      <option>Tatuquara</option>
+      <option value="outro">Outro</option>
+    </select>
 
-<input 
-  id="bairroOutro" 
-  placeholder="Digite seu bairro" 
-  style="display: none;"
->
+    <input 
+      id="bairroOutro" 
+      placeholder="Digite seu bairro"
+      class="hidden"
+    >
 
-    <button type="submit" class="btn">Enviar</button>
+    <button type="submit" class="btn">Enviar doação</button>
+
   </form>
 </div>
 

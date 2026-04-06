@@ -7,9 +7,54 @@
 </head>
 <body>
 
-<header>
-  <h1>Painel - Doações</h1>
+<header class="topbar admin-topbar">
+  <a href="index.html" class="back-btn">←</a>
+  <h1 class="logo">Painel - Doações</h1>
 </header>
+
+<!-- LOGIN -->
+<div class="container" id="loginBox">
+
+  <h2 style="margin-bottom: 20px;">Acesso restrito</h2>
+
+  <div class="input-senha">
+    
+    <input 
+      type="password" 
+      id="senha" 
+      placeholder="Digite a senha"
+    >
+
+    <span 
+      onclick="toggleSenha()" class="eye-icon">
+      👁️
+    </span>
+
+  </div>
+
+  <button class="btn" onclick="login()">Entrar</button>
+
+</div>
+
+<!-- PAINEL -->
+<div class="container" id="painel" style="display: none;">
+  <h2>Doações recebidas</h2>
+  <div class="filtros">
+
+  <button onclick="filtrarTipo('todos')" class="btn">Todos</button>
+  <button onclick="filtrarTipo('Roupas')" class="btn">Roupas</button>
+  <button onclick="filtrarTipo('Alimentos')" class="btn">Alimentos</button>
+  <button onclick="filtrarTipo('Higiene')" class="btn">Higiene</button>
+
+  <br><br>
+
+  <input 
+    type="text" 
+    id="filtroBairro" 
+    placeholder="Buscar por bairro..."
+    oninput="filtrarTudo()"
+  >
+</div>
 
 <div id="cards"></div>
 
