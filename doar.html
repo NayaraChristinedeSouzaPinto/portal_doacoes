@@ -26,6 +26,25 @@
 
     <label>Tipo de doação</label>
     <div class="checkbox-group">
+      <div id="pixBox" class="pix-box hidden">
+
+        <p><strong>Chave PIX:</strong></p>
+        <p class="pix-chave" id="pixChave">
+          mvctbasocial@gmail.com
+        </p>
+
+        <label for="valorPix">Valor da doação</label>
+        <input 
+          type="text" 
+          id="valorPix" 
+          placeholder="Digite o valor da doação"
+      >
+
+    </div>  
+      <label>
+        <input type="checkbox" name="tipo" value="PIX" id="pixCheckbox">
+        PIX
+      </label>
       <label><input type="checkbox" name="tipo" value="Roupas"> Roupas</label>
       <label><input type="checkbox" name="tipo" value="Alimentos"> Alimentos</label>
       <label><input type="checkbox" name="tipo" value="Higiene"> Higiene</label>
@@ -64,6 +83,13 @@
       placeholder="Digite seu bairro"
       class="hidden"
     >
+
+    <label for="entregar">Você pode entregar a doação?</label>
+    <select id="entregar" required>
+      <option value="">Selecione uma opção</option>
+      <option>Sim, posso entregar em algum ponto próximo</option>
+      <option>Não, preciso que retirem comigo</option>
+    </select>
 
     <button type="submit" class="btn">Enviar doação</button>
 
