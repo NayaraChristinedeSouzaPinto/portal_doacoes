@@ -38,6 +38,27 @@ const bairroSelect = document.getElementById("bairro");
 const bairroOutro = document.getElementById("bairroOutro");
 
 const valorPix = document.getElementById("valorPix");
+if (valorPix) {
+
+  valorPix.addEventListener("input", (e) => {
+
+    let valor = e.target.value
+      .replace(/\D/g, "");
+
+    valor = (Number(valor) / 100)
+      .toFixed(2)
+      .replace(".", ",");
+
+    valor = valor.replace(
+      /\B(?=(\d{3})+(?!\d))/g,
+      "."
+    );
+
+    e.target.value = `R$ ${valor}`;
+
+  });
+
+}
 
 const entregar = document.getElementById("entregar");
 
@@ -55,6 +76,8 @@ const pixChave = document.getElementById("pixChave");
 let todasDoacoes = [];
 
 let tipoSelecionado = "todos";
+
+let filtroEntrega = "todos";
 
 
 // ============================
@@ -343,7 +366,13 @@ function renderizarDoacoes(lista) {
 
       <p>
         <strong>Telefone:</strong>
-        ${d.telefone}
+
+        <a 
+          href="https://wa.me/55${d.telefone.replace(/\D/g, '')}"
+          target="_blank"
+        >
+          ${d.telefone}
+        </a>
       </p>
 
       <p>
@@ -402,6 +431,18 @@ window.filtrarTipo = function (tipo) {
 
 };
 
+// ============================
+// FILTRO ENTREGA
+// ============================
+
+window.filtrarEntrega = function (tipo) {
+
+  filtroEntrega = tipo;
+
+  filtrarTudo();
+
+};
+
 
 // ============================
 // FILTRAR TUDO
@@ -436,7 +477,15 @@ window.filtrarTudo = function () {
           ?.toLowerCase()
           .includes(texto);
 
-      return matchTipo && matchBairro;
+      const matchEntrega =
+
+        filtroEntrega === "todos"
+
+        ||
+
+        d.entregar?.toLowerCase().includes(filtroEntrega);
+
+      return matchTipo && matchBairro && matchEntrega;
 
     });
 

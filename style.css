@@ -233,3 +233,13 @@ input[type="checkbox"] {
   margin-bottom: 5px;
   cursor: pointer;
 }
+
+/* ============================
+   TELEFONE LINK
+============================ */
+
+.card a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
