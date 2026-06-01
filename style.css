@@ -5,6 +5,8 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+
+  padding-bottom: 90px;
 }
 
 /* ============================
@@ -43,7 +45,7 @@ body {
 }
 
 /* ============================
-   INPUTS (CORRIGIDO)
+   INPUTS
 ============================ */
 input:not([type="checkbox"]),
 select,
@@ -56,7 +58,9 @@ textarea {
   border: 1px solid #ccc;
 }
 
-/* CHECKBOX CORRIGIDO */
+/* ============================
+   CHECKBOX
+============================ */
 input[type="checkbox"] {
   width: auto;
   margin-right: 8px;
@@ -68,14 +72,80 @@ input[type="checkbox"] {
 .btn {
   background-color: #C62828;
   color: white;
-  padding: 10px 15px;
+  padding: 15px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
+  text-align: center;
 }
 
-.btn:hover {
+.btn-flutuante {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  text-decoration: none;
+  font-size: 24px;
+
+  width: 150px;
+  padding: 14px 20px;
+}
+
+
+.btn-flutuante:hover {
   background-color: #a81f1f;
+  font-size: 26px;
+}
+/* ============================
+   INDEX - FLYER
+============================ */
+
+.flyer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.flyer img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.instagram-link {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.instagram-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #0B5D1E;
+  font-size: 18px;
+}
+
+.instagram-link a:hover {
+  color: #084115;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.titulo-campanha {
+  color: #084115;
+  text-align: center;
+  font-size: 28px;
+}
+
+.frase-campanha {
+  font-style: italic;
+  color: #084115;
+  text-align: center;
+  font-size: 18px;
 }
 
 /* ============================
@@ -242,4 +312,9 @@ input[type="checkbox"] {
   color: green;
   font-weight: bold;
   text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+  font-size: 18px;
 }
