@@ -7,13 +7,19 @@ import {
   getDocs
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // ============================
 // FIREBASE
 // ============================
 
 const firebaseConfig = {
-  apiKey: "SUA_KEY",
+  apiKey: "AIzaSyDORZ-UASrTQfjGXmHgPQOTNZnVZYvSaww",
   authDomain: "portal-doacoes.firebaseapp.com",
   projectId: "portal-doacoes",
   storageBucket: "portal-doacoes.firebasestorage.app",
@@ -23,7 +29,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
+const auth = getAuth(app);
 
 // ============================
 // ELEMENTOS
@@ -301,12 +307,18 @@ if (form) {
 
 async function carregarDoacoes() {
 
+  console.log("Entrou em carregarDoacoes");
+
   const snapshot =
     await getDocs(collection(db, "doacoes"));
+
+    console.log("Quantidade de documentos:", snapshot.size);
 
   todasDoacoes = [];
 
   snapshot.forEach((doc) => {
+
+    console.log(doc.data());
 
     todasDoacoes.push(doc.data());
 
@@ -323,8 +335,13 @@ async function carregarDoacoes() {
 
 function renderizarDoacoes(lista) {
 
+  console.log("Entrou em renderizarDoacoes");
+  console.log("Lista recebida:", lista);
+
   const container =
     document.getElementById("cards");
+
+    console.log("Container:", container);
 
   if (!container) return;
 
@@ -443,12 +460,38 @@ window.filtrarEntrega = function (tipo) {
 
 };
 
+// ============================
+// LIMPAR FILTROS
+// ============================
+
+window.limparFiltros = function () {
+
+  console.log("Filtros limpos");
+
+  tipoSelecionado = "todos";
+
+  filtroEntrega = "todos";
+
+  const input =
+    document.getElementById("filtroBairro");
+
+  if (input) {
+    input.value = "";
+  }
+
+  filtrarTudo();
+
+};
 
 // ============================
 // FILTRAR TUDO
 // ============================
 
 window.filtrarTudo = function () {
+
+  console.log("Entrou em filtrarTudo");
+  console.log("Tipo:", tipoSelecionado);
+console.log("Entrega:", filtroEntrega);
 
   const input =
     document.getElementById("filtroBairro");
@@ -489,38 +532,82 @@ window.filtrarTudo = function () {
 
     });
 
+  console.log("Filtradas:", filtradas);
+
   renderizarDoacoes(filtradas);
 
 };
 
 
 // ============================
-// LOGIN ADMIN
+// LOGIN FIREBASE
 // ============================
 
-window.login = function () {
+window.login = async function () {
+
+  const email =
+    document.getElementById("email")?.value;
 
   const senha =
     document.getElementById("senha")?.value;
 
-  if (senha === "mancha123") {
+  try {
 
-    document.getElementById("loginBox")
-      .style.display = "none";
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      senha
+    );
 
-    document.getElementById("painel")
-      .style.display = "block";
+  } catch (erro) {
 
-    carregarDoacoes();
+    alert("E-mail ou senha inválidos");
 
-  } else {
-
-    alert("Senha incorreta!");
+    console.error(erro);
 
   }
 
 };
 
+// ============================
+// VERIFICA LOGIN
+// ============================
+
+onAuthStateChanged(auth, (user) => {
+
+  console.log("onAuthStateChanged executou");
+
+  const loginBox =
+    document.getElementById("loginBox");
+
+  const painel =
+    document.getElementById("painel");
+
+  if (!loginBox || !painel) return;
+
+  if (user) {
+
+    console.log("Usuário logado:", user.email);
+
+    loginBox.style.display = "none";
+
+    painel.style.display = "block";
+
+    console.log("Chamando carregarDoacoes()");
+
+    carregarDoacoes();
+
+  } else {
+
+    console.log("Usuário não logado");
+
+    loginBox.style.display = "block";
+
+    painel.style.display = "none";
+
+  }
+
+});
 
 // ============================
 // MOSTRAR SENHA

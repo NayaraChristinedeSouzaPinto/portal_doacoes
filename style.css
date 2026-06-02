@@ -76,7 +76,7 @@ input[type="checkbox"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -260,8 +260,20 @@ input[type="checkbox"] {
 }
 
 /* ============================
-   INPUT SENHA (ADMIN)
+   INPUT ADMIN
 ============================ */
+
+.input-email {
+  position: relative;
+  max-width: 200px;
+  margin: auto;
+}
+
+.input-email input {
+  width: 90%;
+  padding-right: 0px;
+}
+
 .input-senha {
   position: relative;
   max-width: 200px;

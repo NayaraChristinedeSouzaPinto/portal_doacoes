@@ -17,6 +17,16 @@
 
   <h2 style="margin-bottom: 20px;">Acesso restrito</h2>
 
+  <div class="input-email">
+    
+    <input 
+      type="email" 
+      id="email" 
+      placeholder="Digite seu email"
+    >
+
+</div>
+
   <div class="input-senha">
     
     <input 
@@ -42,12 +52,16 @@
   <div class="filtros">
 
   <button onclick="filtrarTipo('todos')" class="btn">Todos</button>
-  <button onclick="filtrarTipo('PIX')" class="btn">PIX</button>
   <button onclick="filtrarTipo('Roupas')" class="btn">Roupas</button>
   <button onclick="filtrarTipo('Alimentos')" class="btn">Alimentos</button>
   <button onclick="filtrarTipo('Higiene')" class="btn">Higiene</button>
+  <button onclick="filtrarTipo('Outros')" class="btn">Outros</button>
+  <button onclick="filtrarTipo('PIX')" class="btn">PIX</button>
+  
   <button onclick="filtrarEntrega('posso')" class="btn">Entrega</button>
   <button onclick="filtrarEntrega('preciso')" class="btn">Retirada</button>
+
+  <button onclick="limparFiltros('limpar')" class="btn">Limpar Filtros</button>
 
   <br><br>
 
@@ -60,6 +74,8 @@
 </div>
 
 <div id="cards"></div>
+
+</div>
 
 <script src="script.js" type="module"></script>
 
